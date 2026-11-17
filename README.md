@@ -70,13 +70,9 @@ o frontend usa apenas `react`, `react-dom` e `react-router-dom`.
 
 A ordem é: **banco → backend → frontend**.
 
-### 4.1 Banco de dados (Oracle da FIAP) — já está preparado
+### 4.1 Banco de dados (Oracle) — já está preparado
 
-O banco **já está pronto** na instância Oracle da FIAP: as 4 tabelas (`T_KRX_USUARIO`, `T_KRX_CLIENTE`, `T_KRX_CONTA` e
-`T_KRX_TRANSACAO`) já foram criadas e os dados de teste já foram carregados. **Não é preciso executar nenhum script** para
-avaliar o projeto: basta iniciar o backend (seção 4.2) e o frontend (seção 4.3).
-
-**Se for necessário recriar o banco do zero (opcional)** — por exemplo, para voltar os saldos ao estado inicial depois de
+**Se for necessário recriar o banco do zero ** — por exemplo, para voltar os saldos ao estado inicial depois de
 vários testes — execute, **nesta ordem**, os scripts da pasta `database/`:
 
 1. `krelix_ddl.sql` — cria as tabelas, as chaves, as restrições e as colunas de ID automáticas. O início do arquivo traz um
