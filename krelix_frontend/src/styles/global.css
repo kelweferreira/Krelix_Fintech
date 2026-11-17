@@ -1,0 +1,139 @@
+/* ===== Tokens (cores amostradas do PDF de design) ===== */
+:root {
+  --navy: #17145c;
+  --navy-hover: #221e7a;
+  --roxo: #4244c9;
+  --roxo-claro: #ececfb;
+  --fundo: #f5f6fa;
+  --card: #ffffff;
+  --borda: #dcdee8;
+  --texto: #14142b;
+  --texto-suave: #6b6d85;
+  --verde: #0f8a2f;
+  --verde-fundo: #d3ffd4;
+  --vermelho: #c01616;
+  --vermelho-fundo: #ffe3e3;
+  --raio: 14px;
+  --sombra: 0 1px 2px rgba(23, 20, 92, 0.06);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font-size: 15px; line-height: 1.5; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 1.9rem; font-weight: 700; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--roxo); outline-offset: 2px; }
+
+/* ===== Botões ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 18px; border-radius: 8px; border: 1px solid transparent;
+  font: inherit; font-weight: 500; cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primario { background: var(--navy); color: #fff; }
+.btn-primario:hover:not(:disabled) { background: var(--navy-hover); }
+.btn-secundario { background: #fff; color: var(--navy); border-color: var(--borda); }
+.btn-secundario:hover:not(:disabled) { border-color: var(--navy); }
+.btn-perigo { background: var(--vermelho); color: #fff; }
+.btn-link { background: none; color: var(--navy); padding: 6px 10px; }
+.btn-link:disabled { color: var(--texto-suave); }
+.btn-sm { padding: 6px 12px; font-size: 0.85rem; }
+.btn-bloco { width: 100%; margin-top: 8px; }
+
+.btn-icone, .btn-icone-claro {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 8px; border: none; background: none; cursor: pointer; color: var(--texto-suave);
+}
+.btn-icone:hover { background: var(--roxo-claro); color: var(--roxo); }
+.btn-icone-perigo:hover { background: var(--vermelho-fundo); color: var(--vermelho); }
+.btn-icone-claro { color: #fff; }
+.btn-icone-claro:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* ===== Cartões ===== */
+.card { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px; margin-bottom: 20px; box-shadow: var(--sombra); }
+.card-sem-padding { padding: 0; }
+.card-tabela { padding: 0; overflow: hidden; }
+.card-titulo { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; }
+.card-titulo-padding { padding: 20px 24px 0; }
+.card-topo { display: flex; justify-content: space-between; align-items: baseline; }
+.link { color: var(--roxo); font-weight: 500; }
+.link:hover { text-decoration: underline; }
+.nota { color: var(--texto-suave); font-size: 0.85rem; }
+
+/* ===== Formulários ===== */
+.grid-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.campo label { font-weight: 600; font-size: 0.9rem; }
+.input {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--borda); border-radius: 8px;
+  font: inherit; background: #fff; color: var(--texto);
+}
+.input::placeholder { color: #a3a5b8; }
+.input:focus { border-color: var(--roxo); outline: none; box-shadow: 0 0 0 3px var(--roxo-claro); }
+.input:disabled { background: #f0f1f6; color: var(--texto-suave); }
+.input.erro { border-color: var(--vermelho); }
+.campo-erro { color: var(--vermelho); font-size: 0.82rem; }
+.campo-dica { color: var(--texto-suave); font-size: 0.82rem; }
+.input-com-icone { position: relative; }
+.input-com-icone .input { padding-right: 42px; }
+.input-icone-btn { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--texto-suave); cursor: pointer; padding: 6px; display: flex; }
+.form-acoes { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }
+
+/* ===== Alertas e estados ===== */
+.alerta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 0.92rem; }
+.alerta-erro { background: var(--vermelho-fundo); color: var(--vermelho); border: 1px solid #f5b5b5; }
+.alerta-info { background: var(--roxo-claro); color: var(--navy); border: 1px solid #cfd0f3; margin-top: 16px; }
+.alerta a { text-decoration: underline; font-weight: 600; }
+.estado { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 40px 16px; color: var(--texto-suave); }
+.estado-vazio { padding: 48px 16px; }
+.spinner { width: 18px; height: 18px; border: 2px solid var(--borda); border-top-color: var(--roxo); border-radius: 50%; animation: gira 0.7s linear infinite; }
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* ===== Tabelas ===== */
+.tabela-topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 24px; flex-wrap: wrap; }
+.tabela-scroll { overflow-x: auto; }
+.tabela { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.tabela th { text-align: left; font-weight: 600; padding: 12px 24px; border-bottom: 1px solid var(--borda); white-space: nowrap; background: #fafafd; }
+.tabela td { padding: 14px 24px; border-bottom: 1px solid #eef0f5; white-space: nowrap; }
+.tabela tbody tr:hover { background: #fafaff; }
+.tabela .col-acoes { text-align: right; }
+.acoes-linha { display: inline-flex; gap: 2px; }
+.valor { font-variant-numeric: tabular-nums; font-weight: 600; }
+.valor-positivo { color: var(--verde); }
+.busca { display: flex; align-items: center; gap: 8px; border: 1px solid var(--borda); border-radius: 999px; padding: 8px 16px; min-width: min(320px, 100%); color: var(--texto-suave); background: #fff; }
+.busca input { border: none; outline: none; font: inherit; flex: 1; background: none; min-width: 0; }
+.input-filtro { width: auto; min-width: 180px; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; }
+.badge-verde { background: var(--verde-fundo); color: var(--verde); }
+.badge-roxo { background: var(--roxo-claro); color: var(--roxo); }
+
+/* ===== Paginação ===== */
+.paginacao { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; gap: 8px; }
+.paginacao-numeros { display: flex; gap: 6px; }
+.pag-num { width: 34px; height: 34px; border-radius: 8px; border: none; background: none; font: inherit; cursor: pointer; }
+.pag-num:hover { background: var(--roxo-claro); }
+.pag-num.ativo { background: var(--navy); color: #fff; }
+
+/* ===== Modal e toasts ===== */
+.modal-fundo { position: fixed; inset: 0; background: rgba(20, 20, 43, 0.5); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+.modal { background: #fff; border-radius: var(--raio); padding: 24px; width: min(440px, 100%); }
+.modal h2 { font-size: 1.15rem; margin-bottom: 8px; }
+.modal p { color: var(--texto-suave); }
+.modal-acoes { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.toast-container { position: fixed; top: 16px; right: 16px; z-index: 100; display: flex; flex-direction: column; gap: 10px; width: min(380px, calc(100vw - 32px)); }
+.toast { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 12px 16px; border-radius: 10px; box-shadow: 0 6px 20px rgba(20, 20, 43, 0.18); font-size: 0.92rem; background: #fff; border-left: 4px solid; }
+.toast-sucesso { border-color: var(--verde); }
+.toast-erro { border-color: var(--vermelho); }
+.toast button { background: none; border: none; font-size: 1.2rem; line-height: 1; cursor: pointer; color: var(--texto-suave); }
+
+@media (max-width: 700px) {
+  .grid-form { grid-template-columns: 1fr; }
+  .tabela th, .tabela td { padding: 12px 14px; }
+  .tabela-topo, .paginacao { padding: 12px 14px; }
+  .form-acoes { flex-direction: column-reverse; }
+  .form-acoes .btn { width: 100%; }
+}
